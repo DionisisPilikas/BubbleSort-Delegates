@@ -119,37 +119,56 @@ namespace BubbleSortWithDelegates
         BackEnd b = new BackEnd();
 
 
-        Func<List<TShirt>, int,bool> ColorAscFunc = (List<TShirt> list,  int a)=>
-        {
-            return list.ElementAt(a).Color > list.ElementAt(a + 1).Color ? true : false;
-        };
+        //Func<List<TShirt>, int,bool> ColorAscFunc = (List<TShirt> list,  int a)=>
+        //{
+        //    return list.ElementAt(a).Color > list.ElementAt(a + 1).Color ? true : false;
+        //};
 
-        Func<List<TShirt>, int, bool> ColorDescFunc =  (List<TShirt> list, int a)=>
-        {
-              return list.ElementAt(a).Color < list.ElementAt(a + 1).Color ? true : false;
-        };
+        //Func<List<TShirt>, int, bool> ColorDescFunc =  (List<TShirt> list, int a)=>
+        //{
+        //      return list.ElementAt(a).Color < list.ElementAt(a + 1).Color ? true : false;
+        //};
 
 
-        Func<List<TShirt>, int, bool> SizeAscFunc = (List<TShirt> list, int a)=>
-          {
-              return list.ElementAt(a).Size > list.ElementAt(a + 1).Size ? true : false;
-          };
+        //Func<List<TShirt>, int, bool> SizeAscFunc = (List<TShirt> list, int a)=>
+        //  {
+        //      return list.ElementAt(a).Size > list.ElementAt(a + 1).Size ? true : false;
+        //  };
 
-        Func<List<TShirt>, int, bool> FabricAscFunc = (List<TShirt> list, int a) =>
-        {
-            return list.ElementAt(a).Fabric > list.ElementAt(a + 1).Fabric ? true : false;
-        };
+        //Func<List<TShirt>, int, bool> FabricAscFunc = (List<TShirt> list, int a) =>
+        //{
+        //    return list.ElementAt(a).Fabric > list.ElementAt(a + 1).Fabric ? true : false;
+        //};
 
         public void Print()
         {
             var tshirts = b.GetAll();
             b.PrintAll(tshirts);
             Console.WriteLine("\n" + "Sorted by Color ascending :");
-            b.PrintByColorAscending(tshirts,ColorAscFunc);
+            b.PrintByColorAscending(tshirts, (List<TShirt> list, int a) =>
+            {
+                return list.ElementAt(a).Color > list.ElementAt(a + 1).Color ? true : false;
+            });
+
             Console.WriteLine("\n" + "Sorted by Color descending  :");
-            b.PrintByColorDescending(tshirts,ColorDescFunc);
+            b.PrintByColorDescending(tshirts, (List<TShirt> list, int a) =>
+            {
+                return list.ElementAt(a).Color < list.ElementAt(a + 1).Color ? true : false;
+            });
+
             Console.WriteLine("\n" + "Sorted by Color and Size and Fabric in ascending  :");
-            b.PrintByColorSizeFabric(tshirts,ColorAscFunc,SizeAscFunc,FabricAscFunc);
+            b.PrintByColorSizeFabric(tshirts, (List<TShirt> list, int a) =>
+            {
+                return list.ElementAt(a).Color > list.ElementAt(a + 1).Color ? true : false;
+            },
+            (List<TShirt> list, int a) =>
+            {
+                return list.ElementAt(a).Size > list.ElementAt(a + 1).Size ? true : false;
+            },
+            (List<TShirt> list, int a) =>
+            {
+                return list.ElementAt(a).Fabric > list.ElementAt(a + 1).Fabric ? true : false;
+            });
         }
     }
     class Program
