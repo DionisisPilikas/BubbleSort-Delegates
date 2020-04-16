@@ -117,7 +117,7 @@ namespace BubbleSortWithDelegates
     class FrontEnd
     {
         BackEnd b = new BackEnd();
-<<<<<<< HEAD
+
 
         Func<List<TShirt>, int,bool> ColorAscFunc = (List<TShirt> list,  int a)=>
         {
@@ -128,74 +128,18 @@ namespace BubbleSortWithDelegates
         {
               return list.ElementAt(a).Color < list.ElementAt(a + 1).Color ? true : false;
         };
-=======
-        //create a method that check the condition about color in ascending
-        //static bool ColorAscCondition(List<TShirt> list, int a)
-        //{
-        //    return list.ElementAt(a).Color > list.ElementAt(a + 1).Color ? true : false;
 
-            //if (list.ElementAt(a).Color > list.ElementAt(a + 1).Color)
-            //{
-            //    return true;
-            //}
-            //else
-            //    return false;
-        //}
-        //MyDelegate1 ColorAscChech = new MyDelegate1(ColorAscCondition);
-        //MyDelegate1 ColorAscChech = ColorAscCondition;
-
-
-        //static bool ColorDescCondition(List<TShirt> list , int a)
-        //{
-        //    return list.ElementAt(a).Color < list.ElementAt(a + 1).Color ? true : false;
-        //}
-        //MyDelegate1 ColorDescCheck = new MyDelegate1(ColorDescCondition);
->>>>>>> 1c90d00cace6f186f6fb272a103602f50ccdc375
 
         Func<List<TShirt>, int, bool> SizeAscFunc = (List<TShirt> list, int a)=>
           {
-              return list.ElementAt(a).Fabric > list.ElementAt(a + 1).Fabric ? true : false;
+              return list.ElementAt(a).Size > list.ElementAt(a + 1).Size ? true : false;
           };
 
-<<<<<<< HEAD
-        Func<List<TShirt>, int, bool> FabricAscFunc = (List<TShirt> list, int a)=>
+        Func<List<TShirt>, int, bool> FabricAscFunc = (List<TShirt> list, int a) =>
         {
-=======
-
-        //static bool SizeAscCondition(List<TShirt> list, int a)
-        //{
-        //    return list.ElementAt(a).Size > list.ElementAt(a + 1).Size ? true : false;
-        //}
-        //MyDelegate1 SizeAscChech = new MyDelegate1(SizeAscCondition);
-
-
-
-        //static bool FabricAscCondition(List<TShirt> list, int a)
-        //{
-        //    return list.ElementAt(a).Fabric > list.ElementAt(a + 1).Fabric ? true : false;
-        //}
-        //MyDelegate1 FabricAscChech = FabricAscCondition;
-
-        Func<List<TShirt>, int,bool> ColorAscFunc = delegate (List<TShirt> list, int a)
-        {
-            return list.ElementAt(a).Color > list.ElementAt(a + 1).Color ? true : false;
-        };
-
-        Func<List<TShirt>, int, bool> ColorDescFunc = delegate (List<TShirt> list, int a)
-        {
-              return list.ElementAt(a).Color < list.ElementAt(a + 1).Color ? true : false;
-        };
-
-        Func<List<TShirt>, int, bool> SizeAscFunc = delegate (List<TShirt> list, int a)
-          {
-              return list.ElementAt(a).Fabric > list.ElementAt(a + 1).Fabric ? true : false;
-          };
-
-        Func<List<TShirt>, int, bool> FabricAscFunc = delegate (List<TShirt> list, int a)
-        {
->>>>>>> 1c90d00cace6f186f6fb272a103602f50ccdc375
             return list.ElementAt(a).Fabric > list.ElementAt(a + 1).Fabric ? true : false;
         };
+
         public void Print()
         {
             var tshirts = b.GetAll();
